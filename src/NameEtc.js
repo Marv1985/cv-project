@@ -1,42 +1,52 @@
-import React, {useState, useEffect} from "react";
+import React, { useState } from "react";
+import EditName from "./components/EditName";
 
-const NameEtc = () => {
-    const [color, setColor] = useState("black");
+  /* states */
+  function NameEtc() {
+    const [task, setTask] = useState([]);
+    const [item, setItem] = useState({
+      name: "",
+      number: "",
+      email: ""
+    });
 
-    useEffect(() => {
-        const changeColorOnClick = () => {
-            if (color === "black") {
-                setColor("red");
-            } else {
-                setColor("black")
-            }
-        };
+  /* change handler */
+  function change(e) {
+    setItem({
+      ...item,
+      [e.target.name]: e.target.value
+    })
+  }
 
-        document.addEventListener("click", changeColorOnClick);
+  /* submit handler */
+  function addToList() {
+    let tempArr = task;
+    tempArr.push(item.name);
+    tempArr.push(item.number);
+    tempArr.push(item.email);
+    setTask(tempArr);
+    setItem("");
+  }
 
-        return () => {
-            document.removeEventListener("click", changeColorOnClick);
-        };
+  return (
+    <div>
+      <div>
+        <label>Name </label>
+        <input onChange={change} value={item.name || ''} type="text" name="name" />
+      </div>
+      <div>
+        <label>Number </label>
+        <input onChange={change} value={item.number || ''} type="tel" name="number" />
+      </div>
+      <div>
+        <label>Email </label>
+        <input onChange={change} value={item.email || ''} type="email" name="email" />
+      </div>
 
-    }, [color]);
-
-    return (
-        <div>
-            <div id="myDiv" 
-            style={{
-                color: "white",
-                width: "100px",
-                height: "100px",
-                position: "absolute",
-                left: "50%",
-                top: "50%",
-                backgroundColor: color,
-            }}
-            >   This div can change color. Click on me!
-
-            </div>
-        </div>
-    );
-};
+      <button onClick={addToList}>Add Task</button>
+      <EditName task={task} />
+    </div>
+  );
+}
 
 export default NameEtc;
