@@ -49,50 +49,49 @@ function NameEtc() {
       {/* inputs */}
       {but ? (
         <form onSubmit={addToList}>
-        <div className="wrapper">
-          <div className="inputs">
-            <div>
-              <label>Name </label>
-              <input
-                onChange={change}
-                value={item.name || ""}
-                type="text"
-                id="name"
-                name="name"
-              />
+          <div className="wrapper">
+            <div className="inputs">
+              <div>
+                <label>Name </label>
+                <input
+                  onChange={change}
+                  value={item.name || ""}
+                  type="text"
+                  id="name"
+                  name="name"
+                />
+              </div>
+              <div>
+                <label>Number </label>
+                <input
+                  onChange={change}
+                  value={item.number || ""}
+                  type="tel"
+                  name="number"
+                  id="number"
+                  pattern="[0-9]+"
+                  onInvalid={(e) =>
+                    e.target.setCustomValidity("Enter a valid telphone number")
+                  }
+                  onInput={(e) => e.target.setCustomValidity("")}
+                />
+              </div>
+              <div>
+                <label>Email </label>
+                <input
+                  onChange={change}
+                  value={item.email || ""}
+                  type="email"
+                  name="email"
+                  id="email"
+                />
+              </div>
             </div>
-            <div>
-              <label>Number </label>
-              <input
-                onChange={change}
-                value={item.number || ""}
-                type="tel"
-                name="number"
-                id="number"
-                pattern="[0-9]+"
-                onInvalid={(e) =>
-                  e.target.setCustomValidity("Enter a valid telphone number")
-                }
-                onInput={(e) => e.target.setCustomValidity("")}
-              />
-            </div>
-            <div>
-              <label>Email </label>
-              <input
-                onChange={change}
-                value={item.email || ""}
-                type="email"
-                name="email"
-                id="email"
-              />
-            </div>
-          </div>
-          
 
-          <div className="button">
-            <button type="submit" >Add Task</button>
+            <div className="button">
+              <button type="submit">Add Task</button>
+            </div>
           </div>
-        </div>
         </form>
       ) : null}
 

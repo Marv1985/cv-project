@@ -1,0 +1,44 @@
+/* some css inherited from nameStyles. ie input fields etc */
+
+/* schools block */
+.container2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 350px;
+    width: 800px;
+    border: 1px solid black;
+  }
+  .wrapper2{
+    display: flex;
+    width: 800px;
+    justify-content: space-between;
+  }
+
+  /* input fields */
+  .inputs2 {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 220px;
+    padding-left: 45px;
+  }
+  .inputs2 input{
+    width: 280px;
+  }
+
+  textarea{
+    width: 300px;
+    height: 100px;
+    resize: none;
+  }
+
+  .button2{
+    display: flex;
+    flex-direction: column;
+    padding-right: 45px;
+  }
+  .button2 button{
+    margin-top: 25px;
+  }
+
