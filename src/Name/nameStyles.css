@@ -1,0 +1,68 @@
+body {
+  display: flex;
+  justify-content: center;
+  font-size: 18px;
+}
+/* entire name block */
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 250px;
+  width: 800px;
+  border: 1px solid black;
+}
+
+/* name input fields */
+.inputs {
+  display: flex;
+  padding: 10px;
+}
+input,
+label {
+  display: block;
+  padding: 3px;
+}
+.inputs div {
+  padding: 0 20px 15px 20px;
+}
+input {
+  padding: auto;
+  height: 18px;
+  width: 200px;
+}
+
+/* buttons design */
+.button {
+  display: flex;
+  justify-content: center;
+}
+button {
+  font-size: 20px;
+  width: 150px;
+  height: 40px;
+  border-radius: 20px;
+  border-style: none;
+  background-color: #04aa6d;
+  cursor: pointer;
+  color: white;
+  box-shadow: 3px 4px black;
+}
+button:hover {
+  background-color: #3e8e41;
+}
+
+/* output fields */
+.outputwrapper {
+  width: 80%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.nameoutput {
+  display: flex;
+  flex-direction: column;
+}
+.nameoutput div {
+  padding: 15px 0 15px 0;
+}

@@ -25,7 +25,8 @@ function NameEtc() {
   }
 
   /* submit handler */
-  function addToList() {
+  function addToList(e) {
+    e.preventDefault();
     let tempArr = task;
     tempArr.push(item);
     setTask(tempArr);
@@ -44,52 +45,59 @@ function NameEtc() {
   }
 
   return (
-    <div>
+    <div className="container">
       {/* inputs */}
+      {but ? (
+        <form onSubmit={addToList}>
+        <div className="wrapper">
+          <div className="inputs">
+            <div>
+              <label>Name </label>
+              <input
+                onChange={change}
+                value={item.name || ""}
+                type="text"
+                id="name"
+                name="name"
+              />
+            </div>
+            <div>
+              <label>Number </label>
+              <input
+                onChange={change}
+                value={item.number || ""}
+                type="tel"
+                name="number"
+                id="number"
+                pattern="[0-9]+"
+                onInvalid={(e) =>
+                  e.target.setCustomValidity("Enter a valid telphone number")
+                }
+                onInput={(e) => e.target.setCustomValidity("")}
+              />
+            </div>
+            <div>
+              <label>Email </label>
+              <input
+                onChange={change}
+                value={item.email || ""}
+                type="email"
+                name="email"
+                id="email"
+              />
+            </div>
+          </div>
+          
 
-      <div className="wrapper">
-        <div className="inputs">
-          <div>
-            <label>Name </label>
-            <input
-              onChange={change}
-              value={item.name || ""}
-              type="text"
-              name="name"
-              id="name"
-            />
-          </div>
-          <div>
-            <label>Number </label>
-            <input
-              onChange={change}
-              value={item.number || ""}
-              type="tel"
-              name="number"
-              id="number"
-            />
-          </div>
-          <div>
-            <label>Email </label>
-            <input
-              onChange={change}
-              value={item.email || ""}
-              type="email"
-              name="email"
-              id="email"
-            />
+          <div className="button">
+            <button type="submit" >Add Task</button>
           </div>
         </div>
-
-        <div className="button">
-          {but ? <button onClick={addToList}>Add Task</button> : null}
-
-          {butt ? <button onClick={edit}>Edit</button> : null}
-        </div>
-      </div>
+        </form>
+      ) : null}
 
       {/* output */}
-      <EditName task={task} />
+      {butt ? <EditName edit={edit} task={task} /> : null}
     </div>
   );
 }
